@@ -7,26 +7,35 @@ import ThemeProvider from '@/components/ThemeProvider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
+  // This ensures all relative links (like og-image) use your full domain
   metadataBase: new URL('https://hesap-makinesi.online'),
+  
   title: {
-    default: 'Hesap Makinesi Online - Türkçe Hesaplama Araçları',
+    // This is the homepage title
+    default: 'Hesap Makinesi Online - Hızlı, Ücretsiz ve Güncel Araçlar',
+    // This template automatically adds your site name to every sub-page title
     template: '%s | Hesap Makinesi Online'
   },
-  description: 'Online hesap makinesi ve hesaplama araçları. Yüzde hesaplama, yaş hesaplama, KDV hesaplama, gebelik hesaplama ve daha fazlası.',
-  keywords: 'hesap makinesi, calculator, yüzde hesaplama, yaş hesaplama, kdv hesaplama, online hesaplama',
+  
+  description: 'Online hesap makinesi ve tüm hesaplama araçları bir arada. Yüzde, KDV, LGS puanı, yaş ve gebelik hesaplamalarını en güncel formüllerle anında yapın.',
+  keywords: 'hesap makinesi, calculator, yüzde hesaplama, yaş hesaplama, kdv hesaplama, lgs puan hesaplama, online hesaplama araçları',
+  
   authors: [{ name: 'Hesap Makinesi Online' }],
   creator: 'Hesap Makinesi Online',
   publisher: 'Hesap Makinesi Online',
+
   alternates: {
-    canonical: '/',
+
+    canonical: './',
   },
+
   openGraph: {
     type: 'website',
     locale: 'tr_TR',
     url: 'https://hesap-makinesi.online',
     siteName: 'Hesap Makinesi Online',
     title: 'Hesap Makinesi Online - Türkçe Hesaplama Araçları',
-    description: 'Online hesap makinesi ve hesaplama araçları. Yüzde hesaplama, yaş hesaplama, KDV hesaplama, gebelik hesaplama ve daha fazlası.',
+    description: 'En güncel ve hızlı online hesaplama araçları.',
     images: [
       {
         url: '/og-image.png',
@@ -36,12 +45,14 @@ export const metadata = {
       },
     ],
   },
+
   twitter: {
     card: 'summary_large_image',
-    title: 'Hesap Makinesi Online - Türkçe Hesaplama Araçları',
-    description: 'Online hesap makinesi ve hesaplama araçları.',
+    title: 'Hesap Makinesi Online',
+    description: 'Hızlı ve ücretsiz online hesaplama araçları.',
     images: ['/og-image.png'],
   },
+
   robots: {
     index: true,
     follow: true,
@@ -53,23 +64,28 @@ export const metadata = {
       'max-snippet': -1,
     },
   },
+
   verification: {
-    google: 'your-google-verification-code',
+    // REPLACE THIS with the code from Google Search Console
+    google: 'ENTER_YOUR_ACTUAL_VERIFICATION_CODE_HERE',
   },
 }
 
 export default function RootLayout({ children }) {
   return (
     <html lang="tr" suppressHydrationWarning>
-      <body className={inter.className}>
+      <head>
+        {/* AD SENSE TIP: 
+          When you get your Google AdSense code, paste the <script> tag here 
+        */}
+      </head>
+      <body className={`${inter.className} bg-slate-50 dark:bg-slate-950 min-h-screen flex flex-col`}>
         <ThemeProvider>
-          <div className="min-h-screen flex flex-col">
-            <Header />
-            <main className="flex-grow">
-              {children}
-            </main>
-            <Footer />
-          </div>
+          <Header />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

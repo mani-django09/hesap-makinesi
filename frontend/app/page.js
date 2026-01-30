@@ -2,6 +2,16 @@ import Link from 'next/link'
 import { calculators, categories } from '@/lib/calculators'
 import CalculatorCard from '@/components/CalculatorCard'
 
+
+export const metadata = {
+  title: 'Hesap Makinesi Online - Hızlı, Ücretsiz ve Güvenilir Hesaplama',
+  description: '7 farklı hesaplama aracı bir arada! KDV, LGS puanı, gebelik, yaş ve yüzde hesaplamalarını en güncel formüllerle anında yapın. %100 ücretsiz ve güvenli.',
+  alternates: {
+    canonical: 'https://hesap-makinesi.online',
+  },
+}
+
+
 export default function Home() {
   const jsonLd = {
     '@context': 'https://schema.org',
