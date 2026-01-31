@@ -25,8 +25,29 @@ export const metadata = {
   publisher: 'Hesap Makinesi Online',
 
   alternates: {
-
     canonical: './',
+  },
+
+  // Favicon and Web App Configuration
+  manifest: '/site.webmanifest',
+  themeColor: '#ffffff',
+  applicationName: 'Hesap Makinesi Online',
+  
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
+
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'Hesap Makinesi',
   },
 
   openGraph: {
@@ -75,6 +96,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="tr" suppressHydrationWarning>
       <head>
+        {/* Microsoft Browser Configuration */}
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
+        
         {/* AD SENSE TIP: 
           When you get your Google AdSense code, paste the <script> tag here 
         */}
